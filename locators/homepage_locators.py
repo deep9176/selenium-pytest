@@ -9,5 +9,6 @@ class HomePageLocators:
     apitesting_button = (By.XPATH, "//a[text()=' API Testing']")
     videotutorials_button = (By.XPATH, "//a[text()=' Video Tutorials']")
     contactus_button = (By.XPATH, "//a[text()=' Contact us']")
+    tc_title = (By.XPATH, "//h2[@class='title text-center']")
 
 
