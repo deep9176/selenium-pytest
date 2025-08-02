@@ -1,4 +1,3 @@
-from selenium.webdriver.common.by import By
 from locators.homepage_locators import HomePageLocators
 
 
@@ -12,3 +11,6 @@ class HomePage:
     
     def click_signup(self):
         self.driver.find_element(*HomePageLocators.signup_login_button).click()
+    
+    def click_contactus(self):
+        self.driver.find_element(*HomePageLocators.contactus_button).click()

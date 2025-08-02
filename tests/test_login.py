@@ -10,6 +10,7 @@ test_data = [
 ]
 
 @pytest.mark.parametrize("modifier, expect_success", test_data)
+@pytest.mark.order(3)
 def test_login(browser, user_data_from_json, modifier, expect_success):
     email = user_data_from_json["email"]
     password = user_data_from_json["password"]

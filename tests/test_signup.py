@@ -19,6 +19,7 @@ def valid_country():
 
 
 @pytest.mark.parametrize("modifier, expect_success", test_data)
+@pytest.mark.order(2)
 def test_valid_signup_flow(browser, valid_country, modifier, expect_success):
     logging.info(f"Starting Test: Signup Flow - Modifier: {modifier}")
 

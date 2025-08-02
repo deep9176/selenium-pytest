@@ -42,7 +42,10 @@ def initialize_chrome(headless=False):
     options = ChromeOptions()
     if headless:
         options.add_argument("--headless")
-    service = ChromeService(ChromeDriverManager().install())
+
+    # Use cache only, don't check GitHub every time
+    driver_path = ChromeDriverManager(driver_version="138.0.7204.183").install()
+    service = ChromeService(driver_path)
     return webdriver.Chrome(service=service, options=options)
 
 
@@ -50,7 +53,10 @@ def initialize_firefox(headless=False):
     options = FirefoxOptions()
     if headless:
         options.add_argument("--headless")
-    service = FirefoxService(GeckoDriverManager().install())
+
+    # Use cache only, valid for 1 year
+    driver_path = GeckoDriverManager(version="v0.36.0").install()
+    service = FirefoxService(driver_path)
     return webdriver.Firefox(service=service, options=options)
 
 

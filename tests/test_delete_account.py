@@ -1,11 +1,12 @@
 import logging
+import pytest
 from pages.login_page import LoginPage
 from pages.login_page import user_data_from_json
 from utils.test_data_generator import UserDataGenerator
 
 
 class TestDeleteAccount:
-
+    @pytest.mark.order(4)
     def test_delete_account(self, browser, user_data_from_json):
         login_page = LoginPage(browser)
         login_page.click_login()
