@@ -89,6 +89,21 @@ class UserDataGenerator:
         phone_number = self.fake.phone_number()
         
         return address1, address2, company, country, state, city, zipcode, phone_number
+    
+    def generate_card_details(self):
+        card_number = self.fake.credit_card_number(card_type='visa')  # or 'mastercard', 'amex', etc.
+        card_cvv = self.fake.credit_card_security_code(card_type='visa')
+        expiration_date = self.fake.credit_card_expire(start="now", end="+5y", date_format="%m/%y")
+
+        # Split expiration date
+        exp_month, exp_year = expiration_date.split("/")
+
+        return {
+            "card_number": card_number,
+            "cvv": card_cvv,
+            "exp_month": exp_month,
+            "exp_year": exp_year
+        }
 
     def generate_user_data(self):
         first_name, last_name, full_name = self.generate_name()
@@ -97,6 +112,7 @@ class UserDataGenerator:
         gender = self.generate_gender(first_name)
         day, month, year = self.generate_dob()
         address1, address2, company, country, state, city, zipcode, mobile_number = self.generate_address()
+        card_details = self.generate_card_details()
 
         self.user_data = {
             "first_name": first_name,
@@ -115,7 +131,11 @@ class UserDataGenerator:
             "state": state,
             "city": city,
             "zipcode": zipcode,
-            "mobile_number": mobile_number
+            "mobile_number": mobile_number,
+            "card_number": card_details["card_number"],
+            "cvv": card_details["cvv"],
+            "exp_month": card_details["exp_month"],
+            "exp_year": card_details["exp_year"]
         }
 
     def save_user_data_with_id(self):

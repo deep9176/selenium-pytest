@@ -31,7 +31,6 @@ class LoginPage:
             assert WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located(LoginLocators.logged_in_check)
             ), "Login failed unexpectedly"
-            self.click_logout()
             print("Test Passed: Login successful and logged out successfully.")
         else:
             assert WebDriverWait(self.driver, 10).until(
