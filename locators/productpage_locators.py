@@ -20,6 +20,9 @@ class ProductPageLoc:
     expiry_year = (By.XPATH, "//input[@name='expiry_year']")
     pay_confirm_order = (By.XPATH, "//button[@id='submit']")
     order_placed_msg = (By.XPATH, "//h2[@class='title text-center']/b")
+    search_text = (By.XPATH, "//input[@id='search_product']")
+    search_button = (By.XPATH, "//button[@id='submit_search']")
+
 
     #equivalent xpath
     #products = (By.XPATH, "//*[contains(@class, 'features_items')]//*[contains(@class, 'col-sm-4')]")

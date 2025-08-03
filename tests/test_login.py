@@ -30,3 +30,4 @@ def test_login(browser, user_data_from_json, modifier, expect_success):
         logging.info(f"Login succeeded for: {email}")
     else:
         logging.info(f"Login failed as expected for: {email}")
+    #login_page.click_logout()

@@ -20,3 +20,5 @@ Thumbs.db
 *.html
 *.xml
 reports/
+test_logs/
+*.png
